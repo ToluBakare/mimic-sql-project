@@ -1,2 +1,2 @@
 # mimic-bq-project
-MIMIC-IV analysis using BigQuery in Codespaces
+In this project, I used SQl queries to filter pregnant women in MIMIC-IV data
