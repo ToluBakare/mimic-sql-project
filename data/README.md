@@ -1,0 +1,1 @@
+"# Data > This project uses MIMIC-IV data. > Access requires credentialed PhysioNet account at https://physionet.org/content/mimiciv/ > Data should be queried via Google BigQuery: physionet-data.mimiciv_hosp" 
