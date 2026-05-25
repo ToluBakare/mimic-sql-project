@@ -1,1 +1,4 @@
 *.csv 
+mimic-sql-project/
+MIMIC-bq-project.git/
+MIMIC-bq-project.git.bfg-report/
