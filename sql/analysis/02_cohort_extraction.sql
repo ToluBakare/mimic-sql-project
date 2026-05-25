@@ -2,17 +2,36 @@
 WITH heartfailure_Pnuemonia
 AS ( SELECT subject_id,hadm_id, seq_num, icd_code,
 CASE 
-  WHEN icd_code LIKE 'I50%' THEN 'Heart Failure ICD-10'
-  WHEN icd_code LIKE '428%' THEN 'Heart Failure ICD-9'
-  WHEN icd_code LIKE 'J18%' THEN 'Pnuemonia ICD-10'
-  WHEN icd_code LIKE '486%' THEN 'Pnuemonia ICD-9'
+  WHEN icd_code LIKE 'I50%' OR  icd_code LIKE '428%' THEN 'Heart Failure'
+  WHEN icd_code LIKE 'J12%' OR icd_code LIKE 'J13' 
+    OR icd_code LIKE 'J14' OR icd_code LIKE 'J15%'
+    OR icd_code LIKE 'J16%' OR icd_code LIKE 'J17'
+    OR icd_code LIKE 'J18%' OR icd_code LIKE '480%'
+    OR icd_code LIKE '481%' OR icd_code LIKE '482%'
+    OR icd_code LIKE '483%' OR icd_code LIKE '484%'
+    OR icd_code LIKE '485%' OR icd_code LIKE '486%'
+    THEN 'Pneumonia' 
 END AS condition
 FROM `physionet-data.mimiciv_3_1_hosp.diagnoses_icd`
 WHERE  (icd_code LIKE '428%'
-      OR  icd_code LIKE '486%' 
+      OR  icd_code LIKE '486%'
+      OR icd_code LIKE '480%'
+      OR icd_code LIKE '481%'
+      OR icd_code LIKE '482%'
+      OR icd_code LIKE '483%'
+      OR icd_code LIKE '484%'
+      OR icd_code LIKE '485%' 
       OR  icd_code LIKE 'I50%'
-      OR  icd_code LIKE 'J18%')
-      AND seq_num = 1
+      OR  icd_code LIKE 'J18%'
+      OR icd_code LIKE 'J12%'
+      OR icd_code LIKE 'J13'
+      OR icd_code LIKE 'J14'
+      OR icd_code LIKE 'J15%'
+      OR icd_code LIKE 'J16%'
+      OR icd_code LIKE 'J17'
+
+      )
+  AND seq_num = 1
 
 ), 
  
